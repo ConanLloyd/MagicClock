@@ -21,13 +21,13 @@ jobs:
       - name: Parse Location Clock version
         id: project-version
         run: |
-          echo "::set-output name=version::$(yq e '.esphome.project.version' ./esphome/location-clock.yaml)"
+          echo "::set-output name=version::$(yq e '.esphome.project.version' ./esphome/magic-clock.yaml)"
 
       - id: esphome-build
         name: ESPHome Builder
         uses: esphome/build-action@v1.0.1
         with:
-          yaml_file: ./esphome/location-clock.yaml
+          yaml_file: ./esphome/magic-clock.yaml
           
       - name: Upload Firmware
         uses: actions/upload-artifact@master
@@ -46,11 +46,11 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: firmware
-          path: ./static/firmware/location-clock
+          path: ./static/firmware/magic-clock
 
       - name: Create manifest.json
         run: |
-          jq -s '{"name": "Location Clock", "version": "${{ needs.build.outputs.version }}", "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds":.}' ./static/firmware/location-clock/manifest.json > ./static/firmware/manifest.json
+          jq -s '{"name": "Location Clock", "version": "${{ needs.build.outputs.version }}", "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds":.}' ./static/firmware/magic-clock/manifest.json > ./static/firmware/manifest.json
       
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.6
