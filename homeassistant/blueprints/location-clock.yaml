@@ -9,18 +9,13 @@ blueprint:
 
     ```yaml
     Home: 0
-    Church: 157
-    School: 315
-    Event: 472
-    Traveling: 630
-    Doctor: 787
-    Work: 945
-    Lesson: 1102
-    Parents: 1260
-    Friends: 1417
-    Vacation: 1575
-    Away: 1732
-    Lost: 1890
+    Mortal Peril: 256
+    Quidditch: 512
+    Work: 768
+    School: 1024
+    Garden: 1280
+    In Transit: 1536
+    Lost: 1792
     ```
   domain: automation
   input:
